@@ -38,6 +38,7 @@
                             <td>{{ $post->name }}</td>
                             <td>{{ $post->body }}</td>
                             <td>{{ $post->item }}</td>
+                            <td>{{ $post->image }}</td>
                             <td>
                                 <a class="btn btn-primary btn-sm mb-2" href="{{ route('post.edit', $post->id) }}"
                                     role="button">編集</a>
@@ -56,5 +57,12 @@
                 </tbody>
             </table>
         </div>
+
+        {{-- ページネーション --}}
+        @if ($posts->hasPages())
+            <div class="card-footer clearfix">
+                {{ $posts->links() }}
+            </div>
+        @endif
     </div>
 @stop

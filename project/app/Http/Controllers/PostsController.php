@@ -14,8 +14,12 @@ class PostsController extends Controller
      */
     public function index()
     {
-        // 投稿の一覧を表示させる
-      $posts = Post::all();
+      // 投稿の一覧を表示させる
+      //$posts = Post::all();
+
+      // ページネーション
+      $posts = Post::paginate(5);
+
 
         return view(
             'post.index',
@@ -76,15 +80,19 @@ class PostsController extends Controller
         $post = Post::find($id);
         // fillを使用し、必ずモデルのfillableも指定する
         $post->fill($request->all())->save();
-        // 一覧画面へ遷移して、バリデーションメッセージを表示する
+        // 一覧画面へ遷移して、フラッシュメッセージを表示する
         return redirect()->route('post.index')->with('message', '編集しました');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
+
     {
-        //
+        Post::where('id', $id)->delete();
+
+        // フラッシュメッセージを表示
+        return redirect()->route('post.index')->with('message', '削除しました');
     }
 }
