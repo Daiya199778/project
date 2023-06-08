@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+/*['except' => []]にすることで、全アクションを使えるようにしている。*/
+use App\Http\Controllers\PostsController;
+Route::resource('post', PostsController::class, ['except' => ['show']]);
 
 /*
 |--------------------------------------------------------------------------
