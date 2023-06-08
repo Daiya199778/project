@@ -58,7 +58,7 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
         //編集する投稿を引っ張ってくる
     {   $post = Post::find($id);
 
@@ -71,7 +71,7 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PostRequest $request, string $id)
+    public function update(PostRequest $request, $id)
     {   //編集する投稿を引っ張ってくる
         $post = Post::find($id);
         // fillを使用し、必ずモデルのfillableも指定する
