@@ -36,8 +36,6 @@
                     @foreach ($posts as $post)
                         <tr>
                             <td>{{ $post->name }}</td>
-                            <!--{{-- 数字フォーマット --}}-->
-                            <!--td>{{ number_format($post->price) }}</td-->
                             <td>{{ $post->body }}</td>
                             <td>{{ $post->item }}</td>
                             <td>

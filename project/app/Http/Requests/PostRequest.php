@@ -11,7 +11,7 @@ class PostRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class PostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            // 料理名を最大値は50文字
+            'name' => 'required|string|max:50',
+            'body' => 'required|string|max:500',
+            'item' => 'required|string|max:500',
+            'image' => 'required|string|max:500',
         ];
     }
 }
