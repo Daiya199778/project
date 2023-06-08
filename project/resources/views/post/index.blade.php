@@ -57,5 +57,12 @@
                 </tbody>
             </table>
         </div>
+
+        {{-- ページネーション --}}
+        @if ($posts->hasPages())
+            <div class="card-footer clearfix">
+                {{ $posts->links() }}
+            </div>
+        @endif
     </div>
 @stop
