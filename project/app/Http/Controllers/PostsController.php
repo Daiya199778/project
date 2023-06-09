@@ -15,11 +15,19 @@ class PostsController extends Controller
     public function index()
     {
       // 投稿の一覧を表示させる
-      //$posts = Post::all();
+    //   $posts = Post::all();
 
       // ページネーション
       $posts = Post::paginate(5);
 
+      $posts = Post::orderBy('created_at', 'desc')->where(function ($query) {
+
+        // 検索機能の記述の追加
+        if ($search = request('search')) {
+            $query->where('name', 'LIKE', "%{$search}%")->orWhere('body','LIKE',"%{$search}%")
+            ;
+        }
+      })->paginate(5);
 
         return view(
             'post.index',

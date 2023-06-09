@@ -20,6 +20,13 @@
     {{-- 新規投稿画面へ --}}
     <a class="btn btn-primary mb-2" href="{{ route('post.create') }}" role="button">新規投稿</a>
 
+    <form class="form-inline my-2 my-lg-0 ml-2">
+        <div class="form-group">
+            <input type="search" class="form-control mr-sm-2" name="search"  value="{{request('search')}}" placeholder="キーワードを入力" aria-label="検索...">
+        </div>
+        <input type="submit" value="検索" class="btn btn-info">
+    </form>
+
     <div class="card">
         <div class="card-body">
             <table class="table table-bordered">
@@ -59,10 +66,8 @@
         </div>
 
         {{-- ページネーション --}}
-        @if ($posts->hasPages())
-            <div class="card-footer clearfix">
-                {{ $posts->links() }}
-            </div>
-        @endif
+        <div class="d-flex justify-content-center ">
+            {{ $posts->links() }}
+        </div>
     </div>
 @stop
