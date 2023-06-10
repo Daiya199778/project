@@ -18,7 +18,7 @@ class PostsController extends Controller
     //   $posts = Post::all();
 
       // ページネーション
-      $posts = Post::paginate(5);
+      $posts = Post::paginate(3);
 
       $posts = Post::orderBy('created_at', 'desc')->where(function ($query) {
 
@@ -27,7 +27,7 @@ class PostsController extends Controller
             $query->where('name', 'LIKE', "%{$search}%")->orWhere('body','LIKE',"%{$search}%")
             ;
         }
-      })->paginate(5);
+      })->paginate(3);
 
         return view(
             'post.index',
@@ -47,17 +47,30 @@ class PostsController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(PostRequest $request)
-    {
-        /*インスタンスの作成*/
-        $post = new Post;
+{
+    // 画像フォームでリクエストした画像を取得
+    $image = $request->file('image');
 
-        // fillを使用し、必ずモデルのfillableも指定する
-        $post->fill($request->all())->save();
-
-        // 一覧画面へ遷移して、バリデーションメッセージを表示する
-        return redirect()->route('post.index')->with('message', '登録しました');
-
+    // 画像情報がセットされていれば、保存処理を実行
+    if (isset($image)) {
+        // storage > public > img配下に画像が保存される
+        $path = $image->store('image', 'public');
+    } else {
+        $path = null; // 画像が追加されていない場合は、$path を null に設定
     }
+
+    // リクエストデータを使用して新しいPostモデルを作成し、データベースに保存
+    $post = new Post();
+    $post->name = $request->input('name');
+    $post->body = $request->input('body');
+    $post->item = $request->input('item');
+    $post->image = $path; // 画像パスを保存
+
+    $post->save(); // 画像パスが null でも保存されるようになった
+
+    // 一覧画面へ遷移して、バリデーションメッセージを表示する
+    return redirect()->route('post.index')->with('message', '登録しました');
+}
 
     /**
      * Display the specified resource.
@@ -83,11 +96,27 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PostRequest $request, $id)
-    {   //編集する投稿を引っ張ってくる
-        $post = Post::find($id);
-        // fillを使用し、必ずモデルのfillableも指定する
-        $post->fill($request->all())->save();
+    public function update(PostRequest $request, Post $post)
+    
+    {  // 画像ファイルインスタンス取得
+        $image = $request->file('image');
+        // 現在の画像へのパスをセット
+        $path = $post->image;
+        if (isset($image)) {
+            //投稿データの内imageカラムがnull以外の時には元々の画像データを削除する
+            if ($path !== null) {
+                \Storage::disk('public')->delete($path);
+            }
+            // 選択された画像ファイルを保存してパスをセット
+            $path = $image->store('posts', 'public');
+        }
+        // データベースを更新
+        $post->update([
+            'name' => $request->name,
+            'body' => $request->body,
+            'item' => $request->item,
+            'image' => $path,
+        ]);
         // 一覧画面へ遷移して、フラッシュメッセージを表示する
         return redirect()->route('post.index')->with('message', '編集しました');
     }

@@ -20,32 +20,31 @@
 
     {{-- 編集画面 --}}
     <div class="card">
-        <form action="{{ route('post.update', $post->id) }}" method="post">
+        <form action="{{ route('post.update', $post->id) }}" method="post" enctype="multipart/form-data">
             @csrf @method('PUT')
             <div class="card-body">
               {{-- 料理名 --}}
               <div class="form-group">
                 <label for="name">料理名</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}"
+                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') ?? $post->name}}"
                     placeholder="料理名" />
               </div>
               {{-- 料理詳細 --}}
               <div class="form-group">
                 <label for="body">内容</label>
-                <input type="text" class="form-control" id="body" name="body" value="{{ old('body') }}"
+                <input type="text" class="form-control" id="body" name="body" value="{{ old('body') ?? $post->body}}"
                     placeholder="内容" />
               </div>
               {{-- 材料 --}}
               <div class="form-group">
                 <label for="item">材料</label>
-                <input type="text" class="form-control" id="item" name="item" value="{{ old('item') }}"
+                <input type="text" class="form-control" id="item" name="item" value="{{ old('item') ?? $post->item}}"
                     placeholder="材料" />
               </div>
               {{-- 写真 --}}
               <div class="form-group">
-                <label for="image">写真</label>
-                <input type="text" class="form-control" id="image" name="image" value="{{ old('image') }}"
-                    placeholder="写真" />
+                    <label for="image">画像登録</label>
+                    <input type="file" class="form-control-file" id="image" name='image' value="{{ old('image') ?? $post->image}}">
               </div>
             </div>
             <div class="card-footer">
