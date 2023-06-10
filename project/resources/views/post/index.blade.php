@@ -31,13 +31,13 @@
         <div class="card-body">
             <table class="table table-bordered">
                 <thead>
-                    <tr>
-                        <th>料理名</th>
-                        <th>内容</th>
-                        <th>材料</th>
-                        <th>写真</th>
-                        <th style="width: 70px"></th>
-                    </tr>
+                <tr>
+                    <th style="width: 150px">料理名</th>
+                    <th>内容</th>
+                    <th>材料</th>
+                    <th style="width: 150px">写真</th>
+                    <th style="width: 70px"></th>
+                </tr>
                 </thead>
                 <tbody>
                     @foreach ($posts as $post)
@@ -45,7 +45,13 @@
                             <td>{{ $post->name }}</td>
                             <td>{{ $post->body }}</td>
                             <td>{{ $post->item }}</td>
-                            <td>{{ $post->image }}</td>
+                            <td>
+                                @if($post->image)
+                                    <img src="{{ asset('storage/' . $post->image) }}" style="max-width: 300px; max-height: auto;">
+                                @else
+                                    <img src="{{ asset('storage/image/no_image.png') }}" style="max-width: 300px; max-height: auto;">
+                                @endif
+                            </td>
                             <td>
                                 <a class="btn btn-primary btn-sm mb-2" href="{{ route('post.edit', $post->id) }}"
                                     role="button">編集</a>

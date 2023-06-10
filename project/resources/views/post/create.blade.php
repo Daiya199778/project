@@ -20,7 +20,7 @@
 
     {{-- 登録画面 --}}
     <div class="card">
-        <form action="{{ route('post.store') }}" method="post">
+        <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 {{-- 料理名 --}}
@@ -43,9 +43,8 @@
                 </div>
                 {{-- 写真 --}}
                 <div class="form-group">
-                    <label for="image">写真</label>
-                    <input type="text" class="form-control" id="image" name="image" value="{{ old('image') }}"
-                        placeholder="写真" />
+                    <label for="image">画像登録</label>
+                    <input type="file" class="form-control-file" id="image" name='image' value="{{ old('image') }}">
                 </div>
             </div>
             <div class="card-footer">
