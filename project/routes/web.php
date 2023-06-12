@@ -10,9 +10,14 @@ Route::get('/map', function () {
     return view('map');
 });
 
-Route::get('/', function () {
-    return view('welcome');
+//カレンダー画面へ遷移するためのルーティング
+Route::get('/calendar', function () {
+    return view('calendar');
 });
+
+// Route::get('/', function () {
+//     return view('login');
+// });
 
 Auth::routes();
 
