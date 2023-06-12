@@ -19,6 +19,8 @@ Route::get('/calendar', function () {
 
 // イベント登録処理
 Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('schedule-add');
+// イベント取得処理
+Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
 
 // Route::get('/', function () {
 //     return view('login');
