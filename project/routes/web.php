@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-/*['except' => []]にすることで、全アクションを使えるようにしている。*/
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ScheduleController;
+
+/*['except' => []]にすることで、全アクションを使えるようにしている。*/
 Route::resource('post', PostsController::class, ['except' => ['show']]);
 
 //マップ画面へ遷移するためのルーティング
@@ -14,6 +16,9 @@ Route::get('/map', function () {
 Route::get('/calendar', function () {
     return view('calendar');
 });
+
+// イベント登録処理
+Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('schedule-add');
 
 // Route::get('/', function () {
 //     return view('login');
