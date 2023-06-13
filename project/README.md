@@ -7,60 +7,78 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# COOK_MAP
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# ■ 使い方
+  - ログイン
+  [![Image from Gyazo](https://i.gyazo.com/d27728b222595103225ec09b76b7ebeb.gif)](https://gyazo.com/d27728b222595103225ec09b76b7ebeb)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+  - 新規投稿
+  [![Image from Gyazo](https://i.gyazo.com/51445a56da881aa6e3235488f72364be.gif)](https://gyazo.com/51445a56da881aa6e3235488f72364be)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+  - 投稿編集
+  [![Image from Gyazo](https://i.gyazo.com/7c27fb33c587b588c5732b86ea2cd5db.gif)](https://gyazo.com/7c27fb33c587b588c5732b86ea2cd5db)
 
-## Learning Laravel
+  - 投稿削除
+  [![Image from Gyazo](https://i.gyazo.com/0c5f90695153b401b326f0eeeda95b94.gif)](https://gyazo.com/0c5f90695153b401b326f0eeeda95b94)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+  - マップ機能
+  [![Image from Gyazo](https://i.gyazo.com/7de4aac3e5c2410066c9f7057de4d360.gif)](https://gyazo.com/7de4aac3e5c2410066c9f7057de4d360)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+  - カレンダー機能
+  [![Image from Gyazo](https://i.gyazo.com/f86074725e9b014646423ca886cedb4f.gif)](https://gyazo.com/f86074725e9b014646423ca886cedb4f)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+  - 検索機能
+  [![Image from Gyazo](https://i.gyazo.com/45c95c4c87f7a6ecb4d87f031b87a01e.gif)](https://gyazo.com/45c95c4c87f7a6ecb4d87f031b87a01e)
 
-## Laravel Sponsors
+# ■ サービス概要
+  日記代わりに大好きな料理の記録を残せるツールが欲しくなり作成しました。
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+# ■ メインのターゲットユーザー 
+  25歳の自分
 
-### Premium Partners
+# ■ 機能
+  - ログイン機能
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+  - 一覧機能
+    - 投稿した料理が表示される
 
-## Contributing
+  - 投稿機能
+    - 料理の投稿ができる
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+  - 編集機能
+    - 投稿の編集ができる
 
-## Code of Conduct
+  - 削除機能
+    - 投稿を削除できる
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+  - 検索機能
+    - 投稿の検索ができる
 
-## Security Vulnerabilities
+  - カレンダー機能
+    - カレンダーに作りたい料理名などをメモできる
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+  - マップ機能
+    - google_mapが利用できる
 
-## License
+# ■ 主な使用技術
+  【バックエンド】
+   - Laravel (10.13.2)
+   - PHP（8.2.6）
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+  【フロントエンド】
+   - JavaScript
+   - HTML
+   - Blade
+   - CSSフレームワーク
+     - Bootstrap
+
+  【API】
+   - Google Maps API
+     - Places_API
+     - JavaScript_API
+  
+# ■ 追加実装中の技術
+  【インフラ】
+  - AWS 
+    - S3(実装中)

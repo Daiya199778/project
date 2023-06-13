@@ -32,17 +32,19 @@
                     placeholder="料理名" />
               </div>
               {{-- 料理詳細 --}}
-              <div class="form-group">
-                <label for="body">内容</label>
-                <input type="text" class="form-control" id="body" name="body" value="{{ old('body') ?? $post->body}}"
-                    placeholder="内容" />
-              </div>
-              {{-- 材料 --}}
-              <div class="form-group">
-                <label for="item">材料</label>
-                <input type="text" class="form-control" id="item" name="item" value="{{ old('item') ?? $post->item}}"
-                    placeholder="材料" />
-              </div>
+                <div class="form-group">
+                    <label for="body">内容</label>
+                    <textarea class="form-control" id="body" name="body" rows="10"
+                        placeholder="内容">{{ old('body') ?? $post->body}}
+                    </textarea>
+                </div>
+                {{-- 材料 --}}
+                <div class="form-group">
+                    <label for="item">材料</label>
+                    <textarea class="form-control" id="item" name="item" rows="8"
+                        placeholder="材料">{{ old('item') ?? $post->item}}
+                    </textarea>
+                </div>
               {{-- 写真 --}}
               <div class="form-group">
                     <label for="image">画像登録</label>

@@ -27,6 +27,6 @@
     </head>
     <body class="antialiased">
         <div id='calendar'></div>
-        <button onclick="window.location.href='/post'" style="margin-bottom: 20px;">　　投稿一覧に戻る　　</button>
+        <button onclick="window.location.href='/post'" style="margin-bottom: 20px; background-color: #808080; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">　投稿一覧に戻る　</button>
     </body>
 </html>

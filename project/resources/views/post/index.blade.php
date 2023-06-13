@@ -12,14 +12,14 @@
     <div class="row">
         <div class="col-md-4">
             {{-- 新規投稿画面へ --}}
-            <a class="btn btn-primary mb-2" href="{{ route('post.create') }}" role="button">新規投稿</a>
+            <a class="btn btn-primary btn-lg mb-2" href="{{ route('post.create') }}" role="button">新規投稿</a>
         </div>
         <div class="col-md-8 d-flex justify-content-end">
             <form class="form-inline">
                 <div class="form-group">
                     <input type="search" class="form-control mr-2" name="search" value="{{ request('search') }}" placeholder="キーワードを入力" aria-label="検索...">
                 </div>
-                <input type="submit" value="検索" class="btn btn-info">
+                <input type="submit" value="検索" class="btn btn-info ">
             </form>
         </div>
     </div>
@@ -37,19 +37,19 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th style="width: 150px">料理名</th>
-                        <th>内容</th>
-                        <th>材料</th>
-                        <th style="width: 150px">写真</th>
-                        <th style="width: 70px"></th>
+                    <th style="width: 230px" class="text-center">料理名</th>
+                        <th class="text-center">内容</th>
+                        <th class="text-center">材料</th>
+                        <th style="width: 120px" class="text-center">写真</th>
+                        <th style="width: 70px" class="text-center"></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($posts as $post)
                         <tr>
-                            <td>{{ $post->name }}</td>
-                            <td>{{ $post->body }}</td>
-                            <td>{{ $post->item }}</td>
+                            <td><pre style="white-space: pre-wrap; font-size: 16px;">{{ $post->name }}</pre></td>
+                            <td><pre style="white-space: pre-wrap; font-size: 16px;">{{ $post->body }}</pre></td>
+                            <td><pre style="white-space: pre-wrap; font-size: 16px;">{{ $post->item }}</pre></td>
                             <td>
                                 @if($post->image)
                                     <img src="{{ asset('storage/' . $post->image) }}" style="max-width: 300px; max-height: auto;">

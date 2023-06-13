@@ -22,9 +22,9 @@ Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('
 // イベント取得処理
 Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
 
-// Route::get('/', function () {
-//     return view('login');
-// });
+Route::get('/', function () {
+    return view('auth.login');
+});
 
 Auth::routes();
 

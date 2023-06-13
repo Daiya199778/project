@@ -24,7 +24,7 @@ class PostsController extends Controller
 
         // 検索機能の記述の追加
         if ($search = request('search')) {
-            $query->where('name', 'LIKE', "%{$search}%")->orWhere('body','LIKE',"%{$search}%")
+            $query->where('name', 'LIKE', "%{$search}%")->orWhere('item','LIKE',"%{$search}%")
             ;
         }
       })->paginate(3);
