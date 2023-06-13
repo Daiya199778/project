@@ -57,17 +57,19 @@
 <body class="antialiased">
     <div id="map"></div>
 
-    <form>
-        <input type="text" name="address" value="大阪市" id="address">
-        <button type="button" id="button">検索</button>
+    <form style="display: flex; align-items: center;">
+        <input type="text" name="address" value="大阪市" id="address" style="margin-right: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        <button type="button" id="button" style="background-color: #17a2b8; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">検索</button>
     </form>
+
+
 
     <!-- <ul>
         <li>lat: <span id="lat"></span></li>
         <li>lng: <span id="lng"></span></li>
     </ul> -->
 
-    <button onclick="window.location.href='/post'" style="margin-bottom: 20px;">　　投稿一覧に戻る　　</button>
+    <button onclick="window.location.href='/post'" style="margin-bottom: 20px; background-color: #808080; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">　投稿一覧に戻る　</button>
 
     <script src="{{ asset('js/map.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBAQDf8slF_4FDX5Wadz8kB-MMP2ucsLTI&callback=initMap" async defer></script>
