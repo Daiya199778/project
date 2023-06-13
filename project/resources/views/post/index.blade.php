@@ -53,6 +53,8 @@
                             <td>
                                 @if($post->image)
                                     <img src="{{ asset('storage/' . $post->image) }}" style="max-width: 300px; max-height: auto;">
+                                    <!-- AWS_S3に保存するようにするとなぜかうまくいかない。 -->
+                                    <!-- <img src="{{ Storage::disk('s3')->url($post->image) }}" style="max-width: 300px; max-height: auto;"> -->
                                 @else
                                     <img src="{{ asset('storage/image/no_image.png') }}" style="max-width: 300px; max-height: auto;">
                                 @endif

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
+//S3へ接続するために必要
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 
@@ -14,8 +16,6 @@ class PostsController extends Controller
      */
     public function index()
     {
-      // 投稿の一覧を表示させる
-    //   $posts = Post::all();
 
       // ページネーション
       $posts = Post::paginate(3);
@@ -55,6 +55,10 @@ class PostsController extends Controller
     if (isset($image)) {
         // storage > public > img配下に画像が保存される
         $path = $image->store('image', 'public');
+
+        // S3に画像を保存するための記述
+        // $path = Storage::disk('s3')->put('images', $image, 'public');
+
     } else {
         $path = null; // 画像が追加されていない場合は、$path を null に設定
     }
@@ -106,6 +110,9 @@ class PostsController extends Controller
             //投稿データの内imageカラムがnull以外の時には元々の画像データを削除する
             if ($path !== null) {
                 \Storage::disk('public')->delete($path);
+
+                // s3の記述方法
+                // Storage::disk('s3')->delete($path);
             }
             // 選択された画像ファイルを保存してパスをセット
             $path = $image->store('posts', 'public');
@@ -127,6 +134,16 @@ class PostsController extends Controller
     public function destroy($id)
 
     {
+        // S3の記述方法
+        // $post = Post::find($id);
+
+        // if ($post->image !== null) {
+        //     // S3から画像を削除
+        //     Storage::disk('s3')->delete($post->image);
+        // }
+
+        // $post->delete();
+
         Post::where('id', $id)->delete();
 
         // フラッシュメッセージを表示
