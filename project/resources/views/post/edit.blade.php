@@ -3,7 +3,9 @@
 @section('title', '投稿編集')
 
 @section('content_header')
-    <h1>投稿編集</h1>
+    <div class="text-center">
+        <h1>投稿編集</h1>
+    </div>
 @stop
 
 @section('content')

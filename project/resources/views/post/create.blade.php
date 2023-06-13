@@ -3,7 +3,9 @@
 @section('title', '新規投稿')
 
 @section('content_header')
-    <h1>新規投稿</h1>
+    <div class="text-center">
+        <h1>新規投稿</h1>
+    </div>
 @stop
 
 @section('content')

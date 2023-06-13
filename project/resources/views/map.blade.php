@@ -49,7 +49,7 @@
         }
 
         button {
-            padding: 10px 20px;
+            padding: 10px 25px;
             font-size: 23px;
         }
     </style>
@@ -73,6 +73,3 @@
     <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBAQDf8slF_4FDX5Wadz8kB-MMP2ucsLTI&callback=initMap" async defer></script>
 </body>
 </html>
-
-
-
