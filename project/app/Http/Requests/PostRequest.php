@@ -23,9 +23,9 @@ class PostRequest extends FormRequest
     {
         return [
             // 料理名を最大値は50文字
-            'name' => 'required|max:30',
-            'body' => 'required|max:100',
-            'item' => 'required|max:100', 
+            'name' => 'required|max:100',
+            'body' => 'required|max:500',
+            'item' => 'required|max:500', 
             'image' => [
                 'file',
                 'image',
