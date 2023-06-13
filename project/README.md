@@ -10,26 +10,26 @@
 # COOK_MAP
 
 # ■ 使い方
-  - ログイン
+  ■ ログイン
   [![Image from Gyazo](https://i.gyazo.com/d27728b222595103225ec09b76b7ebeb.gif)](https://gyazo.com/d27728b222595103225ec09b76b7ebeb)
 
-  - 新規投稿
+  ■ 新規投稿
   [![Image from Gyazo](https://i.gyazo.com/51445a56da881aa6e3235488f72364be.gif)](https://gyazo.com/51445a56da881aa6e3235488f72364be)
 
-  - 投稿編集
+  ■ 投稿編集
   [![Image from Gyazo](https://i.gyazo.com/7c27fb33c587b588c5732b86ea2cd5db.gif)](https://gyazo.com/7c27fb33c587b588c5732b86ea2cd5db)
 
-  - 投稿削除
+  ■ 投稿削除
   [![Image from Gyazo](https://i.gyazo.com/0c5f90695153b401b326f0eeeda95b94.gif)](https://gyazo.com/0c5f90695153b401b326f0eeeda95b94)
+  
+  ■ 検索機能
+  [![Image from Gyazo](https://i.gyazo.com/45c95c4c87f7a6ecb4d87f031b87a01e.gif)](https://gyazo.com/45c95c4c87f7a6ecb4d87f031b87a01e)
 
-  - マップ機能
-  [![Image from Gyazo](https://i.gyazo.com/7de4aac3e5c2410066c9f7057de4d360.gif)](https://gyazo.com/7de4aac3e5c2410066c9f7057de4d360)
-
-  - カレンダー機能
+  ■ カレンダー機能
   [![Image from Gyazo](https://i.gyazo.com/f86074725e9b014646423ca886cedb4f.gif)](https://gyazo.com/f86074725e9b014646423ca886cedb4f)
 
-  - 検索機能
-  [![Image from Gyazo](https://i.gyazo.com/45c95c4c87f7a6ecb4d87f031b87a01e.gif)](https://gyazo.com/45c95c4c87f7a6ecb4d87f031b87a01e)
+  ■ マップ機能（※マークダウンにて添付ができなかったため、リンクにて添付しております。）
+  https://i.gyazo.com/069394af03bc27542ada43471d1be7ef.mp4
 
 # ■ サービス概要
   日記代わりに大好きな料理の記録を残せるツールが欲しくなり作成しました。
