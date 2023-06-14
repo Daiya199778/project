@@ -102,7 +102,7 @@ class PostsController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     
-    {  // 画像ファイルインスタンス取得
+    {  
         $image = $request->file('image');
         // 現在の画像へのパスをセット
         $path = $post->image;
