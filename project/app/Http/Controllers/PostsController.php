@@ -16,18 +16,14 @@ class PostsController extends Controller
      */
     public function index()
     {
+        //検索機能の記述追加（when文へ変更）
+      $posts = Post::orderBy('created_at', 'desc')
+        ->when(request('search'), function ($query, $search) {
+            return $query->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('item', 'LIKE', "%{$search}%");
+        })
+        ->paginate(3);
 
-      // ページネーション
-      $posts = Post::paginate(3);
-
-      $posts = Post::orderBy('created_at', 'desc')->where(function ($query) {
-
-        // 検索機能の記述の追加
-        if ($search = request('search')) {
-            $query->where('name', 'LIKE', "%{$search}%")->orWhere('item','LIKE',"%{$search}%")
-            ;
-        }
-      })->paginate(3);
 
         return view(
             'post.index',
