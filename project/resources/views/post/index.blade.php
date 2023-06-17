@@ -60,13 +60,15 @@
                                 @endif
                             </td>
                             <td>
-                                <a class="btn btn-primary btn-sm mb-2" href="{{ route('post.edit', $post->id) }}" role="button">編集</a>
-                                <form action="{{ route('post.destroy', $post->id) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    {{-- 簡易的に確認メッセージを表示 --}}
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('削除してもよろしいですか?');">削除</button>
-                                </form>
+                                @if ($post->user_id === auth()->user()->id)
+                                    <a class="btn btn-primary btn-sm mb-2" href="{{ route('post.edit', $post->id) }}" role="button">編集</a>
+                                    <form action="{{ route('post.destroy', $post->id) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        {{-- 簡易的に確認メッセージを表示 --}}
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('削除してもよろしいですか?');">削除</button>
+                                    </form>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
