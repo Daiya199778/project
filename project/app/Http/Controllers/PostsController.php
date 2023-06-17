@@ -61,6 +61,7 @@ class PostsController extends Controller
 
     // リクエストデータを使用して新しいPostモデルを作成し、データベースに保存
     $post = new Post();
+    $post->user_id = auth()->user()->id; // ログインユーザーのIDを設定
     $post->name = $request->input('name');
     $post->body = $request->input('body');
     $post->item = $request->input('item');
