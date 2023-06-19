@@ -64,7 +64,7 @@ class PostsController extends Controller
     $post->user_id = auth()->user()->id; // ログインユーザーのIDを設定
     $post->name = $request->input('name');
     $post->body = $request->input('body');
-    // $post->item = $request->input('item');
+    //implode()関数を使って配列を改行区切りの文字列に変換すること、配列を文字列に変換できるため正常に作成ができる。
     $post->item = implode("\n", $request->input('item'));
     $post->image = $path; // 画像パスを保存
 
@@ -87,11 +87,16 @@ class PostsController extends Controller
      */
     public function edit($id)
         //編集する投稿を引っ張ってくる
-    {   $post = Post::find($id);
+    {   
+        $post = Post::find($id);
+        // 材料の値を改行で分割して配列に変換
+        $items = explode("\n", $post->item);
 
         //編集画面へ遷移
         return view('post.edit', [
-            'post' => $post
+            'post' => $post,
+            // 材料の値をビューに渡す
+            'items' => $items,
         ]);
     }
 
@@ -119,7 +124,9 @@ class PostsController extends Controller
         $post->update([
             'name' => $request->name,
             'body' => $request->body,
-            'item' => $request->item,
+            //implode()関数を使って配列を改行区切りの文字列に変換すること、配列を文字列に変換できるため正常に更新ができる。
+            //また配列を更新するためのキーを指定する必要があります。
+            'item' => implode("\n", $request->input('item')),
             'image' => $path,
         ]);
         // 一覧画面へ遷移して、フラッシュメッセージを表示する

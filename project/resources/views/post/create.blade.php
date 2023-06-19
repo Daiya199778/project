@@ -42,7 +42,7 @@
                     @if(old('item'))
                         @foreach(old('item') as $item)
                             <div class="input-group mb-3">
-                                <textarea class="form-control" name="item[]" rows="2" placeholder="材料">{{ $item }}</textarea>
+                                <textarea class="form-control" name="item[]" rows="1" placeholder="材料">{{ $item }}</textarea>
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary remove-item" type="button"><i class="fa fa-minus"></i></button>
                                 </div>
@@ -50,7 +50,7 @@
                         @endforeach
                     @else
                         <div class="input-group mb-3">
-                            <textarea class="form-control" name="item[]" rows="2" placeholder="材料"></textarea>
+                            <textarea class="form-control" name="item[]" rows="1" placeholder="材料"></textarea>
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary remove-item" type="button"><i class="fa fa-minus"></i></button>
                             </div>
