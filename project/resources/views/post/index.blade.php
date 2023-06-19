@@ -37,9 +37,10 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                    <th style="width: 230px" class="text-center">料理名</th>
+                        <th style="width: 230px" class="text-center">料理名</th>
                         <th class="text-center">内容</th>
                         <th class="text-center">材料</th>
+                        <th class="text-center">調味料</th>
                         <th style="width: 120px" class="text-center">写真</th>
                         <th style="width: 70px" class="text-center"></th>
                     </tr>
@@ -50,6 +51,7 @@
                             <td><pre style="white-space: pre-wrap; font-size: 16px;">{{ $post->name }}</pre></td>
                             <td><pre style="white-space: pre-wrap; font-size: 16px;">{{ $post->body }}</pre></td>
                             <td><pre style="white-space: pre-wrap; font-size: 16px;">{{ $post->item }}</pre></td>
+                            <td><pre style="white-space: pre-wrap; font-size: 16px;">{{ $post->seasoning }}</pre></td>
                             <td>
                                 @if($post->image)
                                     <img src="{{ asset('storage/' . $post->image) }}" style="max-width: 300px; max-height: auto;">
