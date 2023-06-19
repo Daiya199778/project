@@ -13,6 +13,7 @@ class Post extends Model
         'name',
         'body',
         'item',
+        'seasoning',
         'image',
     ];
 }

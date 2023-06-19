@@ -22,10 +22,11 @@ class PostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 料理名を最大値は50文字
+            // 料理名を最大値は100文字
             'name' => 'required|max:100',
             'body' => 'required|max:500',
             'item' => 'required|max:500', 
+            'seasoning' => 'required|max:500',
             'image' => [
                 'file',
                 'image',
