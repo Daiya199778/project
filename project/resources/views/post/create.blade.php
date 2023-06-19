@@ -39,7 +39,27 @@
                 {{-- 材料 --}}
                 <div class="form-group">
                     <label for="item">材料</label>
-                    <textarea class="form-control" id="item" name="item" rows="8" placeholder="材料">{{ old('item') }}</textarea>
+                    @if(old('item'))
+                        @foreach(old('item') as $item)
+                            <div class="input-group mb-3">
+                                <textarea class="form-control" name="item[]" rows="2" placeholder="材料">{{ $item }}</textarea>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary remove-item" type="button"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="input-group mb-3">
+                            <textarea class="form-control" name="item[]" rows="2" placeholder="材料"></textarea>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary remove-item" type="button"><i class="fa fa-minus"></i></button>
+                            </div>
+                        </div>
+                    @endif
+                    <div id="item-container"></div>
+                    <div class="mt-2">
+                        <button class="btn btn-outline-secondary add-item" type="button"><i class="fa fa-plus"></i> 材料を追加</button>
+                    </div>
                 </div>
                 {{-- 写真 --}}
                 <div class="form-group">
@@ -57,4 +77,8 @@
             </div>
         </form>
     </div>
+@stop
+
+@section('adminlte_js')
+    <script src="{{ asset('js/form.js') }}"></script>
 @stop

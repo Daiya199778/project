@@ -64,7 +64,8 @@ class PostsController extends Controller
     $post->user_id = auth()->user()->id; // ログインユーザーのIDを設定
     $post->name = $request->input('name');
     $post->body = $request->input('body');
-    $post->item = $request->input('item');
+    // $post->item = $request->input('item');
+    $post->item = implode("\n", $request->input('item'));
     $post->image = $path; // 画像パスを保存
 
     $post->save(); // 画像パスが null でも保存されるようになった
