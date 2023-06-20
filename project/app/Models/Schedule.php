@@ -13,5 +13,6 @@ class Schedule extends Model
         'start_date',
         'end_date',
         'event_name',
+        'user_id',
     ];
 }
