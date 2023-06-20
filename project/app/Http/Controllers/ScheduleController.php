@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Schedule;
+use Illuminate\Support\Facades\Validator;
 
 class ScheduleController extends Controller
 {
@@ -63,5 +64,17 @@ class ScheduleController extends Controller
             ->where('end_date', '>', $start_date)
             ->where('start_date', '<', $end_date)
             ->get();
+    }
+    public function scheduleDelete(Request $request)
+    {
+        try {
+            $scheduleId = $request->input('schedule_id');
+            $schedule = Schedule::findOrFail($scheduleId);
+            $schedule->delete();
+            
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => '削除に失敗しました']);
+        }
     }
 }

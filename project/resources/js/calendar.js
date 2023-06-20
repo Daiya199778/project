@@ -63,7 +63,7 @@ let calendar = new Calendar(calendarEl, {
             //サーバーからのレスポンスが成功した場合に実行されるコールバック関数を下記に定義
             .then((response) => {
                 // 追加したイベントを削除
-                calendar.removeAllEvents();
+                // calendar.removeAllEvents();
                 // カレンダーに読み込み
                 successCallback(response.data);
             })
@@ -73,5 +73,22 @@ let calendar = new Calendar(calendarEl, {
                 alert("登録に失敗しました");
             });
     },
+    eventClick: function (info) {
+        const deleteEvent = confirm("イベントを削除しますか？");
+        if (deleteEvent) {
+            const scheduleId = info.event.id;
+            axios
+                .post("/schedule-delete", {
+                    schedule_id: scheduleId,
+                })
+                .then(() => {
+                    info.event.remove();
+                })
+                .catch(() => {
+                    alert("削除に失敗しました");
+                });
+        }
+    },
+    
 });
 calendar.render();
