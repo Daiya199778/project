@@ -21,6 +21,9 @@ Route::get('/calendar', function () {
 Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('schedule-add');
 // イベント取得処理
 Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
+// イベント削除処理
+Route::post('/schedule-delete', [ScheduleController::class, 'scheduleDelete'])->name('schedule-delete');
+
 
 Route::get('/', function () {
     return view('auth.login');
