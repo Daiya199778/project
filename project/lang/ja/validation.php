@@ -179,6 +179,6 @@ return [
     |
     */
 
-    'attributes' => ['name'=>'料理名','body'=>'内容','item'=>'材料','seasoning'=>'調味料'],
+    'attributes' => ['name'=>'料理名','body'=>'内容','item'=>'材料','seasoning'=>'調味料','date'=>'日時'],
 
 ];

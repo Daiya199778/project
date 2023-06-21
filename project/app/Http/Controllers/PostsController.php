@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Http\Requests\PostRequest;
 //S3へ接続するために必要
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon; //日時の取得
 
 class PostsController extends Controller
 
@@ -59,6 +60,9 @@ class PostsController extends Controller
         $path = null; // 画像が追加されていない場合は、$path を null に設定
     }
 
+    //日時を取得
+    $date = Carbon::parse($request->input('date'))->toDateString();
+
     // リクエストデータを使用して新しいPostモデルを作成し、データベースに保存
     $post = new Post();
     $post->user_id = auth()->user()->id; // ログインユーザーのIDを設定
@@ -69,6 +73,7 @@ class PostsController extends Controller
     //implode()関数を使って配列を改行区切りの文字列に変換すること、配列を文字列に変換できるため正常に作成ができる。
     $post->seasoning = implode("\n", $request->input('seasoning'));
     $post->image = $path; // 画像パスを保存
+    $post->date = $date; // 日時を設定
 
     $post->save(); // 画像パスが null でも保存されるようになった
 
@@ -96,6 +101,9 @@ class PostsController extends Controller
 
         // 調味料の値を改行で分割して配列に変換
         $seasonings = explode("\n", $post->seasoning);
+
+        // 日時をCarbonオブジェクトに変換
+        $post->date = Carbon::parse($post->date);
 
         //編集画面へ遷移
         return view('post.edit', [
@@ -127,6 +135,10 @@ class PostsController extends Controller
             // 選択された画像ファイルを保存してパスをセット
             $path = $image->store('posts', 'public');
         }
+
+        // 日付のみを取得
+        $date = Carbon::parse($request->input('date'))->toDateString();
+
         // データベースを更新
         $post->update([
             'name' => $request->name,
@@ -135,6 +147,7 @@ class PostsController extends Controller
             //また配列を更新するためのキーを指定する必要があります。
             'item' => implode("\n", $request->input('item')),
             'seasoning' => implode("\n", $request->input('seasoning')),
+            'date' => $date,
             'image' => $path,
         ]);
         $post->save(); // 画像パスが null でも保存されるようになった

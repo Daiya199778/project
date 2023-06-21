@@ -70,6 +70,11 @@
                         <button class="btn btn-outline-secondary add-seasoning" type="button"><i class="fa fa-plus"></i> 調味料を追加</button>
                     </div>
                 </div>
+                {{-- 日時 --}}
+                <div class="form-group">
+                    <label for="date">日時</label>
+                    <input type="date" class="form-control" id="date" name="date" value="{{ old('date') ?? $post->date->format('Y-m-d') }}" />
+                </div>
               {{-- 写真 --}}
               <div class="form-group">
                     <label for="image">画像登録</label>

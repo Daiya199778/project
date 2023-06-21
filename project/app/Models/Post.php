@@ -15,5 +15,6 @@ class Post extends Model
         'item',
         'seasoning',
         'image',
+        'date',
     ];
 }

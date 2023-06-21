@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::table('schedules', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('post_id')->nullable();
+            
+            $table->foreign('post_id')->references('id')->on('posts');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
@@ -24,6 +27,9 @@ return new class extends Migration
     {
         Schema::table('schedules', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
+            $table->dropForeign(['post_id']);
+            
+            $table->dropColumn('post_id');
             $table->dropColumn('user_id');
         });
     }
