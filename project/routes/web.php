@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\VideoController;
 
 /*['except' => []]にすることで、全アクションを使えるようにしている。*/
 Route::resource('post', PostsController::class, ['except' => ['show']]);
@@ -23,6 +24,9 @@ Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('
 Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
 // イベント削除処理
 Route::post('/schedule-delete', [ScheduleController::class, 'scheduleDelete'])->name('schedule-delete');
+
+//動画画面へのルーティング
+Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
 
 
 Route::get('/', function () {
