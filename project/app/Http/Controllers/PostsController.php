@@ -7,7 +7,8 @@ use App\Models\Post;
 use App\Http\Requests\PostRequest;
 //S3へ接続するために必要
 use Illuminate\Support\Facades\Storage;
-use Carbon\Carbon; //日時の取得
+//日時の取得
+use Carbon\Carbon;
 
 class PostsController extends Controller
 
@@ -17,7 +18,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //検索機能の記述追加（when文へ変更）
+      //検索機能の記述追加（when文へ変更）
       $posts = Post::orderBy('created_at', 'desc')
         ->when(request('search'), function ($query, $search) {
             return $query->where('name', 'LIKE', "%{$search}%")
@@ -60,19 +61,19 @@ class PostsController extends Controller
         $path = null; // 画像が追加されていない場合は、$path を null に設定
     }
 
-    //日時を取得
+    //carbonライブラリを利用して日付を文字列に変換している
     $date = Carbon::parse($request->input('date'))->toDateString();
 
     // リクエストデータを使用して新しいPostモデルを作成し、データベースに保存
     $post = new Post();
     $post->user_id = auth()->user()->id; // ログインユーザーのIDを設定
-    $post->name = $request->input('name');
-    $post->body = $request->input('body');
+    $post->name = $request->input('name'); // 料理名を設定
+    $post->body = $request->input('body'); // 内容を設定
     //implode()関数を使って配列を改行区切りの文字列に変換すること、配列を文字列に変換できるため正常に作成ができる。
     $post->item = implode("\n", $request->input('item'));
     //implode()関数を使って配列を改行区切りの文字列に変換すること、配列を文字列に変換できるため正常に作成ができる。
     $post->seasoning = implode("\n", $request->input('seasoning'));
-    $post->image = $path; // 画像パスを保存
+    $post->image = $path; // 画像パスを設定
     $post->date = $date; // 日時を設定
 
     $post->save(); // 画像パスが null でも保存されるようになった

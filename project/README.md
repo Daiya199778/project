@@ -11,19 +11,19 @@
 
 # ■ 使い方
   ■ ログイン
-  [![Image from Gyazo](https://i.gyazo.com/d27728b222595103225ec09b76b7ebeb.gif)](https://gyazo.com/d27728b222595103225ec09b76b7ebeb)
+  [![Image from Gyazo](https://i.gyazo.com/98ebe0ec7664a8da9daa53627b85273d.gif)](https://gyazo.com/98ebe0ec7664a8da9daa53627b85273d)
 
   ■ 新規投稿
-  [![Image from Gyazo](https://i.gyazo.com/51445a56da881aa6e3235488f72364be.gif)](https://gyazo.com/51445a56da881aa6e3235488f72364be)
+  [![Image from Gyazo](https://i.gyazo.com/0e60bd47c5766da8e7a67376b5df1606.gif)](https://gyazo.com/0e60bd47c5766da8e7a67376b5df1606)
 
   ■ 投稿編集
-  [![Image from Gyazo](https://i.gyazo.com/7c27fb33c587b588c5732b86ea2cd5db.gif)](https://gyazo.com/7c27fb33c587b588c5732b86ea2cd5db)
+  [![Image from Gyazo](https://i.gyazo.com/7ef514823f6ef655cf3a8939cdb15d50.gif)](https://gyazo.com/7ef514823f6ef655cf3a8939cdb15d50)
 
   ■ 投稿削除
-  [![Image from Gyazo](https://i.gyazo.com/0c5f90695153b401b326f0eeeda95b94.gif)](https://gyazo.com/0c5f90695153b401b326f0eeeda95b94)
-  
+  [![Image from Gyazo](https://i.gyazo.com/20727736029221de76c8862fd09184a4.gif)](https://gyazo.com/20727736029221de76c8862fd09184a4)
+
   ■ 検索機能
-  [![Image from Gyazo](https://i.gyazo.com/45c95c4c87f7a6ecb4d87f031b87a01e.gif)](https://gyazo.com/45c95c4c87f7a6ecb4d87f031b87a01e)
+  [![Image from Gyazo](https://i.gyazo.com/557a885d3e6e5b5032c732bda01234e1.gif)](https://gyazo.com/557a885d3e6e5b5032c732bda01234e1)
 
   ■ カレンダー機能
   [![Image from Gyazo](https://i.gyazo.com/f86074725e9b014646423ca886cedb4f.gif)](https://gyazo.com/f86074725e9b014646423ca886cedb4f)
@@ -31,11 +31,8 @@
   ■ マップ機能（※マークダウンにて添付ができなかったため、リンクにて添付しております。）
   https://i.gyazo.com/069394af03bc27542ada43471d1be7ef.mp4
 
-# ■ サービス概要
-  日記代わりに大好きな料理の記録を残せるツールが欲しくなり作成しました。
-
-# ■ メインのターゲットユーザー 
-  25歳の自分
+  ■ 料理動画機能
+  [![Image from Gyazo](https://i.gyazo.com/10afcae63de68cf7deb56675fc4ffa52.gif)](https://gyazo.com/10afcae63de68cf7deb56675fc4ffa52)
 
 # ■ 機能
   - ログイン機能
@@ -60,6 +57,9 @@
 
   - マップ機能
     - google_mapが利用できる
+  
+  - 料理動画機能
+    - 料理動画の検索および視聴ができる
 
 # ■ 主な使用技術
   【バックエンド】
@@ -77,8 +77,8 @@
    - Google Maps API
      - Places_API
      - JavaScript_API
+   - YouTube Data API v3
   
-# ■ 追加実装中の技術
   【インフラ】
   - AWS 
-    - S3(実装中)
+    - S3
