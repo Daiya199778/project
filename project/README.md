@@ -31,8 +31,8 @@
   ■ マップ機能（※マークダウンにて添付ができなかったため、リンクにて添付しております。）
   https://i.gyazo.com/069394af03bc27542ada43471d1be7ef.mp4
 
-  ■ 料理動画機能
-  [![Image from Gyazo](https://i.gyazo.com/10afcae63de68cf7deb56675fc4ffa52.gif)](https://gyazo.com/10afcae63de68cf7deb56675fc4ffa52)
+  ■ 料理動画機能（※マークダウンにて添付ができなかったため、リンクにて添付しております。）
+  https://i.gyazo.com/10afcae63de68cf7deb56675fc4ffa52.mp4
 
 # ■ 機能
   - ログイン機能
